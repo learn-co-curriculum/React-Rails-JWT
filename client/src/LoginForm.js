@@ -38,7 +38,7 @@ class LoginForm extends Component {
           <input type='password' name='password' placeholder='Password' onChange={this.handleChange} />
         </Form.Field>
         <Form.Field>
-          <Checkbox label='I agree to right clean code.' />
+          <Checkbox label='I agree to write clean code.' />
         </Form.Field>
         <Button type='submit'>Log In</Button>
       </Form>
