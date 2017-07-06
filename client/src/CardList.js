@@ -5,10 +5,8 @@ import { Dimmer, Loader, Card} from 'semantic-ui-react'
 
 class CardsList extends Component {
   componentWillMount () {
-    console.log('Mounting')
   }
   componentWillUpdate () {
-    console.log('Updating', this.props.history)
   }
   loading () {
     if (this.props.cards) {

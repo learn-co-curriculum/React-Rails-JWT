@@ -5,10 +5,8 @@ import Navigation from './Navigation'
 import Home from './Home'
 import CardsRouter from './CardsRouter'
 import LoginForm from './LoginForm'
-import Auth from './authAdapter'
-import createBrowserHistory from 'history/createBrowserHistory'
 
-const history = createBrowserHistory()
+
 
 class App extends Component {
 
@@ -27,7 +25,7 @@ class App extends Component {
 
   render () {
     return (
-        <Router history={history}>
+        <Router >
           <div>
             <Navigation auth={this.state.auth} logout={this.logout.bind(this)}/>
             <Route exact path='/' render={()=>{
