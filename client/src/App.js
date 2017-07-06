@@ -25,18 +25,14 @@ class App extends Component {
 
   render () {
     return (
-        <Router >
-          <div>
-            <Navigation auth={this.state.auth} logout={this.logout.bind(this)}/>
-            <Route exact path='/' render={()=>{
-              return this.state.auth.isLoggedIn ? <Home /> : <Redirect to="/login"/>
-            }} />
-            <Route path='/cards' component={CardsRouter} />
-            <Route path='/login' render={() =>{
-              return this.state.auth.isLoggedIn ? <Redirect to="/"/> : <LoginForm onSubmit={this.logIn.bind(this)}/>}
-            }/>
-          </div>
-        </Router>
+      <Router >
+        <div>
+          <Navigation auth={this.state.auth} logout={this.logout.bind(this)}/>
+          <Route exact path='/' component={Home}/>
+          <Route path='/cards' component={CardsRouter} />
+          <Route path='/login' render={() =>{ <LoginForm onSubmit={this.logIn.bind(this)}/>}}/>
+        </div>
+      </Router>
       )
   }
 }
