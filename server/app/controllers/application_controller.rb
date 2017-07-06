@@ -2,6 +2,7 @@ class ApplicationController < ActionController::API
   private
 
   def issue_token payload
+    JWT.encode(payload, secret, algorithm)
   end
 
   def authorize_user!
@@ -21,6 +22,7 @@ class ApplicationController < ActionController::API
   def decoded_token
     if token
       begin
+        JWT.decode(token,secret, true, {algorithm: algorithm})
       rescue JWT::DecodeError
         return [{}]
       end
@@ -30,6 +32,7 @@ class ApplicationController < ActionController::API
   end
 
   def token
+    request.headers['Authorization']
   end
 
   def secret
