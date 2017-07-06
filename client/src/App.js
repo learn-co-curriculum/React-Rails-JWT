@@ -19,10 +19,35 @@ class App extends Component {
     }
   }
   componentWillMount(){
-  }
+      if (localStorage.getItem('jwt')) {
+       Auth.currentUser()
+         .then(user => {
+           if (!user.error) {
+             console.log("fetch user");
+             this.setState({
+               auth: {
+                 isLoggedIn: true,
+                 user: user
+               }
+             })
+           }
+         })
+     }
+   }
   logout(){
+    localStorage.removeItem('jwt')
+    this.setState({ auth: { isLoggedIn: false, user:{}}})
   }
   logIn(loginParams){
+    Auth.login(loginParams)
+      .then( user => {
+        if (!user.error) {
+          this.setState({
+            auth: { isLoggedIn: true, user: user}
+          })
+          localStorage.setItem('jwt', user.jwt )
+        }
+      })
   }
 
   render () {

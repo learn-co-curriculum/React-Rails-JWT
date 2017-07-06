@@ -6,9 +6,11 @@ import { Dimmer, Loader, Card} from 'semantic-ui-react'
 class CardsList extends Component {
   componentWillMount () {
     console.log('Mounting')
+    if (!localStorage.getItem('jwt')) this.props.history.push('/login')
   }
   componentWillUpdate () {
-    console.log('Updating', this.props.history)
+    console.log('Updating')
+    if (!localStorage.getItem('jwt')) this.props.history.push('/login')
   }
   loading () {
     if (this.props.cards) {
