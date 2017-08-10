@@ -1,0 +1,1 @@
+Reference code for mod5 projects seekign to use JWT authentication in their projects. This should be used as a reference that you can cherry pick out of, as opposed to an existing skeleton that you build your code around.
